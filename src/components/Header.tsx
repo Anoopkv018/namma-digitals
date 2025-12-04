@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Mail, Phone } from 'lucide-react';
 import QuoteModal from './QuoteModal';
 
 const Header = () => {
@@ -21,6 +21,30 @@ const Header = () => {
   return (
     <>
       <header className="bg-white shadow-lg sticky top-0 z-50">
+        {/* Topbar */}
+        <div className="bg-slate-950 text-slate-100 text-xs sm:text-sm border-b border-slate-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
+            {/* Left: Email */}
+            <a
+              href="mailto:info@nammadigitals.com"
+              className="inline-flex items-center gap-2 hover:text-amber-300 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span>info@nammadigitals.com</span>
+            </a>
+
+            {/* Right: Phone */}
+            <a
+              href="tel:+919876543210"
+              className="inline-flex items-center gap-2 hover:text-amber-300 transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              <span>+91 98765 43210</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Main Navbar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="flex items-center space-x-2">
@@ -46,7 +70,7 @@ const Header = () => {
                   </Link>
                 ))}
               </nav>
-              
+
               <button
                 onClick={() => setIsQuoteModalOpen(true)}
                 className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
@@ -95,9 +119,9 @@ const Header = () => {
         </div>
       </header>
 
-      <QuoteModal 
-        isOpen={isQuoteModalOpen} 
-        onClose={() => setIsQuoteModalOpen(false)} 
+      <QuoteModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
       />
     </>
   );

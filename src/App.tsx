@@ -7,10 +7,12 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Pricing from './pages/Pricing';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* <-- this forces every route to start at top */}
       <div className="min-h-screen bg-white">
         <Header />
         <Routes>

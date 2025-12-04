@@ -10,12 +10,12 @@ interface PackageModalProps {
   billingCycle: string;
 }
 
-const PackageModal: React.FC<PackageModalProps> = ({ 
-  isOpen, 
-  onClose, 
-  packageName, 
-  packagePrice, 
-  billingCycle 
+const PackageModal: React.FC<PackageModalProps> = ({
+  isOpen,
+  onClose,
+  packageName,
+  packagePrice,
+  billingCycle,
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -27,15 +27,18 @@ const PackageModal: React.FC<PackageModalProps> = ({
     goals: '',
     timeline: '',
     additionalServices: '',
-    message: ''
+    message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Normalize name so it still works with new labels like "Digital Marketing – Startup"
+  const baseName =
+    packageName.split('–').pop()?.trim().replace('Package', '').trim() || packageName;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
-      // Prepare data for email service
       const emailData = {
         name: formData.name,
         email: formData.email,
@@ -50,14 +53,14 @@ Billing: ${billingCycle}
 Price: ${packagePrice}
 Website: ${formData.website || 'Not provided'}
 Current Marketing: ${formData.currentMarketing || 'Not specified'}
-Goals: ${formData.goals}
+Goals: ${formData.goals || 'Not specified'}
 Additional Services: ${formData.additionalServices || 'None'}
-Message: ${formData.message}
-        `.trim()
+Message: ${formData.message || 'Not provided'}
+        `.trim(),
       };
 
       const emailSent = await sendQuoteNotification(emailData);
-      
+
       if (emailSent) {
         setIsSubmitted(true);
         setTimeout(() => {
@@ -73,29 +76,36 @@ Message: ${formData.message}
             goals: '',
             timeline: '',
             additionalServices: '',
-            message: ''
+            message: '',
           });
         }, 3000);
       } else {
-        alert('There was an error sending your request. Please try again or contact us directly at info@nammadigitals.com');
+        alert(
+          'There was an error sending your request. Please try again or contact us directly at info@nammadigitals.com'
+        );
       }
     } catch (error) {
       console.error('Error submitting package form:', error);
-      alert('There was an error sending your request. Please try again or contact us directly at info@nammadigitals.com');
+      alert(
+        'There was an error sending your request. Please try again or contact us directly at info@nammadigitals.com'
+      );
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   if (!isOpen) return null;
 
   const getFormFields = () => {
-    switch (packageName) {
+    // baseName will be "Startup", "Growth", "Enterprise" for Digital Marketing packages
+    switch (baseName) {
       case 'Startup':
         return (
           <>
@@ -115,7 +125,10 @@ Message: ${formData.message}
             </div>
 
             <div>
-              <label htmlFor="currentMarketing" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="currentMarketing"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Current Marketing Efforts
               </label>
               <select
@@ -171,7 +184,10 @@ Message: ${formData.message}
             </div>
 
             <div>
-              <label htmlFor="currentMarketing" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="currentMarketing"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Current Marketing Channels *
               </label>
               <select
@@ -209,7 +225,10 @@ Message: ${formData.message}
             </div>
 
             <div>
-              <label htmlFor="additionalServices" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="additionalServices"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Additional Services Needed
               </label>
               <select
@@ -251,7 +270,10 @@ Message: ${formData.message}
               </div>
 
               <div>
-                <label htmlFor="currentMarketing" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="currentMarketing"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Current Marketing Budget *
                 </label>
                 <select
@@ -288,7 +310,10 @@ Message: ${formData.message}
             </div>
 
             <div>
-              <label htmlFor="additionalServices" className="block text-sm font-medium text-gray-700 mb-2">
+              <label
+                htmlFor="additionalServices"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
                 Required Enterprise Services
               </label>
               <textarea
@@ -305,21 +330,69 @@ Message: ${formData.message}
         );
 
       default:
-        return null;
+        // Generic extra questions for website / social / SEO etc.
+        return (
+          <>
+            <div>
+              <label htmlFor="website" className="block text-sm font-medium text-gray-700 mb-2">
+                Website / Social Profile (if any)
+              </label>
+              <input
+                type="url"
+                id="website"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                placeholder="https://yourwebsite.com or social handle"
+              />
+            </div>
+            <div>
+              <label htmlFor="goals" className="block text-sm font-medium text-gray-700 mb-2">
+                What are you looking to achieve? *
+              </label>
+              <textarea
+                id="goals"
+                name="goals"
+                required
+                rows={3}
+                value={formData.goals}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-all duration-200"
+                placeholder="Describe your goals for this package (traffic, leads, sales, branding, etc.)"
+              ></textarea>
+            </div>
+          </>
+        );
     }
   };
 
+  const prettyBilling =
+    billingCycle.toLowerCase() === 'one-time'
+      ? 'One-time Project'
+      : billingCycle.charAt(0).toUpperCase() + billingCycle.slice(1) + ' Plan';
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-gray-200 flex justify-between items-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+        <div className="p-6 border-b border-gray-200 flex justify-between items-start gap-4">
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Get Started with {packageName}</h2>
-            <p className="text-gray-600">{packagePrice}/{billingCycle}</p>
+            <div className="mt-2 flex flex-wrap items-center gap-2 text-sm">
+              <span className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 font-semibold text-gray-800">
+                {packagePrice}{' '}
+                {billingCycle && billingCycle.toLowerCase() !== 'one-time'
+                  ? ` / ${billingCycle}`
+                  : ''}
+              </span>
+              <span className="inline-flex items-center rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-700">
+                {prettyBilling}
+              </span>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
           >
             <X className="h-5 w-5" />
           </button>
@@ -329,10 +402,12 @@ Message: ${formData.message}
           {isSubmitted ? (
             <div className="text-center py-8">
               <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Request Sent Successfully!</h3>
-              <p className="text-gray-600">
-                Thank you for choosing the {packageName} package! Our team will contact you within 24 hours 
-                to discuss your requirements and get you started.
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Request Sent Successfully!
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Thank you for choosing the {packageName} package. Our team will contact you within
+                24 hours to discuss your requirements and get you started.
               </p>
             </div>
           ) : (
@@ -353,7 +428,7 @@ Message: ${formData.message}
                     placeholder="Your full name"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email Address *
@@ -387,7 +462,7 @@ Message: ${formData.message}
                     placeholder="+91 96630 90897"
                   />
                 </div>
-                
+
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                     Company Name *
@@ -445,7 +520,7 @@ Message: ${formData.message}
                 type="submit"
                 className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-4 px-8 rounded-lg font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
               >
-                Start {packageName} Package
+                Start {baseName} Package
                 <Send className="ml-2 h-5 w-5" />
               </button>
             </form>
