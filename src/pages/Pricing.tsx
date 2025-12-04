@@ -11,7 +11,7 @@ const Pricing = () => {
   } | null>(null);
 
   const [socialBilling, setSocialBilling] = useState<'monthly' | 'yearly'>('monthly');
-  const [seoBilling, setSeoBilling] = useState<'quarterly' | 'yearly'>('quarterly');
+  const [seoBilling, setSeoBilling] = useState<'monthly' | 'yearly'>('monthly');
   const [dmBilling, setDmBilling] = useState<'monthly' | 'yearly'>('monthly');
 
   /* ---------------- Website Packages (one-time) ---------------- */
@@ -113,13 +113,13 @@ const Pricing = () => {
     }
   ];
 
-  /* ---------------- SEO Packages (Quarterly / Yearly) ---------------- */
+  /* ---------------- SEO Packages (monthly / Yearly) ---------------- */
 
   const seoPlans = [
     {
       name: 'Local SEO',
       description: 'Perfect for location-based businesses targeting local searches.',
-      quarterlyPrice: '₹5,000',
+      monthlyPrice: '₹5,000',
       yearlyPrice: '₹40,000',
       popular: false,
       features: [
@@ -134,7 +134,7 @@ const Pricing = () => {
     {
       name: 'Standard SEO',
       description: 'For businesses targeting city / state level keywords.',
-      quarterlyPrice: '₹8,000',
+      monthlyPrice: '₹8,000',
       yearlyPrice: '₹55,000',
       popular: true,
       features: [
@@ -150,7 +150,7 @@ const Pricing = () => {
     {
       name: 'Advanced SEO',
       description: 'For competitive industries & high-growth brands.',
-      quarterlyPrice: '₹10,000',
+      monthlyPrice: '₹10,000',
       yearlyPrice: '₹80,000',
       popular: false,
       features: [
@@ -487,21 +487,21 @@ const Pricing = () => {
               Search Engine Optimization (SEO)
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-              Quarterly and yearly SEO retainers to keep your website ranking and converting.
+              monthly and yearly SEO retainers to keep your website ranking and converting.
             </p>
 
             {/* SEO Billing Toggle */}
             <div className="flex items-center justify-center space-x-4">
               <span
                 className={`font-medium text-sm ${
-                  seoBilling === 'quarterly' ? 'text-blue-600' : 'text-gray-500'
+                  seoBilling === 'monthly' ? 'text-blue-600' : 'text-gray-500'
                 }`}
               >
-                Quarterly
+                Monthly
               </span>
               <button
                 onClick={() =>
-                  setSeoBilling(seoBilling === 'quarterly' ? 'yearly' : 'quarterly')
+                  setSeoBilling(seoBilling === 'monthly' ? 'yearly' : 'monthly')
                 }
                 className="relative inline-flex h-6 w-12 items-center rounded-full bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-white"
               >
@@ -527,7 +527,7 @@ const Pricing = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {seoPlans.map((plan, index) => {
               const price =
-                seoBilling === 'quarterly' ? plan.quarterlyPrice : plan.yearlyPrice;
+                seoBilling === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice;
 
               return (
                 <div
@@ -554,7 +554,7 @@ const Pricing = () => {
                     <div className="mb-4">
                       <span className="text-3xl font-bold text-gray-900">{price}</span>
                       <span className="text-gray-600">
-                        /{seoBilling === 'quarterly' ? 'quarter' : 'year'}
+                        /{seoBilling === 'monthly' ? 'month' : 'year'}
                       </span>
                       <div className="text-xs text-gray-500 mt-1">Ad budgets excluded</div>
                     </div>
@@ -704,7 +704,7 @@ const Pricing = () => {
 
           <div className="text-center mt-8">
             <p className="text-gray-600 text-sm">
-              *All monthly / quarterly / yearly packages exclude ad spend budgets. Ad budgets are
+              *All monthly / monthly / yearly packages exclude ad spend budgets. Ad budgets are
               managed separately based on your requirements.
             </p>
           </div>
