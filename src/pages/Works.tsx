@@ -53,7 +53,7 @@ const works: WorkItem[] = [
       'Responsive, fast-loading pages',
     ],
     metrics: ['Higher enquiry rate vs old site', 'Improved brand perception'],
-    thumbnail: '/works/dreambuzz.jpg',
+    thumbnail: '/works-thumbs/dreambuzz.jpg',
     url: 'https://dreambuzz.in',
   },
   {
@@ -69,7 +69,7 @@ const works: WorkItem[] = [
       'SEO-optimised content structure',
     ],
     metrics: ['Increase in course enquiries', 'Better search visibility'],
-    thumbnail: '/works/letspro.jpg',
+    thumbnail: '/works-thumbs/letspro.jpg',
     url: 'https://letspro.in',
   },
   {
@@ -85,7 +85,7 @@ const works: WorkItem[] = [
       'Integrated contact & booking',
     ],
     metrics: ['More direct program enquiries', 'Longer session time on site'],
-    thumbnail: '/works/yogawithsrinatha.jpg',
+    thumbnail: '/works-thumbs/yogawithsrinatha.jpg',
     url: 'https://yogawithsrinatha.com',
   },
   {
@@ -101,7 +101,7 @@ const works: WorkItem[] = [
       'Contact and quote forms',
     ],
     metrics: ['Increase in qualified leads', 'Stronger online presence'],
-    thumbnail: '/works/fewdot.jpg',
+    thumbnail: '/works-thumbs/fewdot.jpg',
     url: 'https://fewdot.com',
   },
   {
@@ -117,7 +117,7 @@ const works: WorkItem[] = [
       'WhatsApp / call booking touchpoints',
     ],
     metrics: ['More direct bookings', 'Reduced dependency on OTAs'],
-    thumbnail: '/works/kanchkallbisle.jpg',
+    thumbnail: '/works-thumbs/kanchkallbisle.jpg',
     url: 'https://kanchkallbisle.com',
   },
   {
@@ -133,7 +133,7 @@ const works: WorkItem[] = [
       'Mobile-friendly experience',
     ],
     metrics: ['Higher local enquiries', 'Better Google search appearance'],
-    thumbnail: '/works/sbmotors.jpg',
+    thumbnail: '/works-thumbs/sbmotors.jpg',
     url: 'https://sbmotors.in',
   },
   {
@@ -149,7 +149,7 @@ const works: WorkItem[] = [
       'Lead capture for retreats',
     ],
     metrics: ['Increase in program interest', 'Better brand storytelling'],
-    thumbnail: '/works/yanadays.jpg',
+    thumbnail: '/works-thumbs/yanadays.jpg',
     url: 'https://yanadays.com',
   },
   {
@@ -165,7 +165,7 @@ const works: WorkItem[] = [
       'Easy enquiry and contact',
     ],
     metrics: ['More admission enquiries', 'Improved trust & clarity'],
-    thumbnail: '/works/saigurukula.jpg',
+    thumbnail: '/works-thumbs/saigurukula.jpg',
     url: 'https://saigurukula.com',
   },
 
@@ -183,7 +183,7 @@ const works: WorkItem[] = [
       'Reel concepts & scripting',
     ],
     metrics: ['+350% reach growth', 'Steady follower increase'],
-    thumbnail: '/works/yogawithsrinatha-ig.jpg',
+    thumbnail: '/works-thumbs/yogawithsrinatha-ig.jpg',
     url: 'https://www.instagram.com/yogawithsrinatha/',
   },
   {
@@ -199,7 +199,7 @@ const works: WorkItem[] = [
       'Lead-focused creatives',
     ],
     metrics: ['More DM enquiries', 'Higher profile visits'],
-    thumbnail: '/works/letspro-ig.jpg',
+    thumbnail: '/works-thumbs/letspro-ig.jpg',
     url: 'https://www.instagram.com/letsproacademy/',
   },
   {
@@ -215,7 +215,7 @@ const works: WorkItem[] = [
       'Retreat promotion creatives',
     ],
     metrics: ['Increased brand awareness', 'Engaged niche community'],
-    thumbnail: '/works/yanadays-ig.jpg',
+    thumbnail: '/works-thumbs/yanadays-ig.jpg',
     url: 'https://www.instagram.com/yanadaysinsta',
   },
   {
@@ -231,7 +231,7 @@ const works: WorkItem[] = [
       'Stronger visual identity',
     ],
     metrics: ['Higher saves & shares', 'Better engagement on posts'],
-    thumbnail: '/works/nimmadestination-ig.jpg',
+    thumbnail: '/works-thumbs/nimmadestination-ig.jpg',
     url: 'https://www.instagram.com/nimmadestination/',
   },
   {
@@ -247,7 +247,7 @@ const works: WorkItem[] = [
       'Admissions-oriented creatives',
     ],
     metrics: ['More profile visits', 'Admissions enquiries via DM'],
-    thumbnail: '/works/saigurukula-ig.jpg',
+    thumbnail: '/works-thumbs/saigurukula-ig.jpg',
     url: 'https://www.instagram.com/saigurukulapreschool/',
   },
   {
@@ -263,7 +263,7 @@ const works: WorkItem[] = [
       'Design tips & ideas',
     ],
     metrics: ['Higher-quality leads', 'Improved brand perception'],
-    thumbnail: '/works/vallabh-ig.jpg',
+    thumbnail: '/works-thumbs/vallabh-ig.jpg',
     url: 'https://www.instagram.com/vallabhinteriors/',
   },
   {
@@ -279,7 +279,7 @@ const works: WorkItem[] = [
       'Brand awareness campaigns',
     ],
     metrics: ['Increase in inbound leads', 'Better education for audience'],
-    thumbnail: '/works/samatha-ig.jpg',
+    thumbnail: '/works-thumbs/samatha-ig.jpg',
     url: 'https://www.instagram.com/samathagreenenergysolutions/',
   },
   {
@@ -295,31 +295,30 @@ const works: WorkItem[] = [
       'Value + promotional mix',
     ],
     metrics: ['Growth in followers', 'Consistent engagement'],
-    thumbnail: '/works/glolife-ig.jpg',
+    thumbnail: '/works-thumbs/glolife-ig.jpg',
     url: 'https://www.instagram.com/glolifeblr/',
   },
 ];
 
 // DESIGN WORKS
 const designWorks: DesignItem[] = [
-
-    // logos
+  // LOGOS
   {
     id: 'logo-1',
-    client: 'luxury',
+    client: 'Luxury',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/luxury.jpg',
-    src: '/works/logo/luxury.jpg',
-    alt: 'luxury properties',
+    image: '/works-thumbs/logo/luxury.jpg',
+    src: '/works-thumbs/logo/luxury.jpg',
+    alt: 'Luxury properties',
   },
   {
     id: 'logo-2',
     client: 'Vishwamanava',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/mmc.jpg',
-    src: '/works/logo/mmc.jpg',
+    image: '/works-thumbs/logo/mmc.jpg',
+    src: '/works-thumbs/logo/mmc.jpg',
     alt: 'VISHWAMANAVA PU COLLEGE',
   },
   {
@@ -327,8 +326,8 @@ const designWorks: DesignItem[] = [
     client: 'Perfect Solutions',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/ps.jpg',
-    src: '/works/logo/ps.jpg',
+    image: '/works-thumbs/logo/ps.jpg',
+    src: '/works-thumbs/logo/ps.jpg',
     alt: 'Perfect Solutions',
   },
   {
@@ -336,8 +335,8 @@ const designWorks: DesignItem[] = [
     client: 'Dr Soda',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/soda.jpg',
-    src: '/works/logo/soda.jpg',
+    image: '/works-thumbs/logo/soda.jpg',
+    src: '/works-thumbs/logo/soda.jpg',
     alt: 'Dr Soda',
   },
   {
@@ -345,8 +344,8 @@ const designWorks: DesignItem[] = [
     client: 'Svarna',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/svarna.jpg',
-    src: '/works/logo/svarna.jpg',
+    image: '/works-thumbs/logo/svarna.jpg',
+    src: '/works-thumbs/logo/svarna.jpg',
     alt: 'Svarna coconut oil',
   },
   {
@@ -354,159 +353,162 @@ const designWorks: DesignItem[] = [
     client: 'Transform CX',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/transform.jpg',
-    src: '/works/logo/transform.jpg',
+    image: '/works-thumbs/logo/transform.jpg',
+    src: '/works-thumbs/logo/transform.jpg',
     alt: 'Transform CX',
   },
   {
     id: 'logo-7',
-    client: 'Charming nest',
+    client: 'Charming Nest',
     category: 'Logo',
     mediaType: 'image',
-    image: '/works/logo/charming.jpg',
-    src: '/works/logo/charming.jpg',
-    alt: 'Charming nest',
+    image: '/works-thumbs/logo/charming.jpg',
+    src: '/works-thumbs/logo/charming.jpg',
+    alt: 'Charming Nest',
   },
-  // products
+
+  // PRODUCTS
   {
     id: 'product-1',
-    client: 'Native moola',
+    client: 'Native Moola',
     category: 'Products',
     mediaType: 'image',
-    image: '/works/products/1.jpg',
-    src: '/works/products/1.jpg',
-    alt: 'Native moola',
+    image: '/works-thumbs/products/1.jpg',
+    src: '/works-thumbs/products/1.jpg',
+    alt: 'Native Moola',
   },
   {
     id: 'product-2',
-    client: 'Native moola',
+    client: 'Native Moola',
     category: 'Products',
     mediaType: 'image',
-    image: '/works/products/2.jpg',
-    src: '/works/products/2.jpg',
-    alt: 'Native moola',
+    image: '/works-thumbs/products/2.jpg',
+    src: '/works-thumbs/products/2.jpg',
+    alt: 'Native Moola',
   },
   {
     id: 'product-3',
     client: 'Svarna',
     category: 'Products',
     mediaType: 'image',
-    image: '/works/products/3.jpg',
-    src: '/works/products/3.jpg',
+    image: '/works-thumbs/products/3.jpg',
+    src: '/works-thumbs/products/3.jpg',
     alt: 'Svarna coconut oil',
   },
-  // posters
+
+  // POSTERS
   {
     id: 'posters-1',
     client: 'Vishwamanava PU College',
     category: 'Posters',
     mediaType: 'image',
-    image: '/works/posters/pu.jpg',
-    src: '/works/posters/pu.jpg',
-    alt: 'Vishwamanava PU College',
+    image: '/works-thumbs/posters/pu.jpg',
+    src: '/works-thumbs/posters/pu.jpg',
+    alt: 'Vishwamanava PU College poster',
   },
   {
     id: 'posters-2',
     client: 'Charming Nest',
     category: 'Posters',
     mediaType: 'image',
-    image: '/works/posters/charming.jpg',
-    src: '/works/posters/charming.jpg',
-    alt: 'Charming nest',
+    image: '/works-thumbs/posters/charming.jpg',
+    src: '/works-thumbs/posters/charming.jpg',
+    alt: 'Charming Nest poster',
   },
   {
     id: 'posters-3',
     client: 'LetsPro Academy',
     category: 'Posters',
     mediaType: 'image',
-    image: '/works/posters/letspro.jpg',
-    src: '/works/posters/letspro.jpg',
-    alt: 'LetsPro Academy',
+    image: '/works-thumbs/posters/letspro.jpg',
+    src: '/works-thumbs/posters/letspro.jpg',
+    alt: 'LetsPro Academy poster',
   },
   {
     id: 'posters-4',
     client: 'LetsPro Academy',
     category: 'Posters',
     mediaType: 'image',
-    image: '/works/posters/letspro2.jpg',
-    src: '/works/posters/letspro2.jpg',
-    alt: 'LetsPro Academy',
+    image: '/works-thumbs/posters/letspro2.jpg',
+    src: '/works-thumbs/posters/letspro2.jpg',
+    alt: 'LetsPro Academy poster 2',
   },
   {
     id: 'posters-5',
-    client: 'Skanda Gold company',
+    client: 'Skanda Gold Company',
     category: 'Posters',
     mediaType: 'image',
-    image: '/works/posters/skanda.jpg',
-    src: '/works/posters/skanda.jpg',
-    alt: 'Skanda Gold company',
+    image: '/works-thumbs/posters/skanda.jpg',
+    src: '/works-thumbs/posters/skanda.jpg',
+    alt: 'Skanda Gold Company poster',
   },
 
-  // reels
+  // REELS (VIDEOS)
   {
-  id: 'reel-1',
-  client: 'LetsPro Academy',
-  category: 'Reels',
-     mediaType: 'video',
-     image: '/works/reels/letspro.jpg',
-     src: '/works/reels/letspro.mp4',
-     alt: 'LetsPro Academy',
-   },
-    {
-  id: 'reel-2',
-  client: 'Yanadays',
-  category: 'Reels',
-     mediaType: 'video',
-     image: '/works/reels/yana.jpg',
-     src: '/works/reels/yana.mp4',
-     alt: 'Yanadays',
-   },
-    {
-  id: 'reel-3',
-  client: 'Nimma Destination',
-  category: 'Reels',
-     mediaType: 'video',
-     image: '/works/reels/nimma.jpg',
-     src: '/works/reels/nimma.mp4',
-     alt: 'Nimma Destination',
-   },
-{
-  id: 'reel-4',
-  client: 'Denzu innovation',
-  category: 'Reels',
-     mediaType: 'video',
-     image: '/works/reels/denzu.jpg',
-     src: '/works/reels/denzu.mp4',
-     alt: 'Denzu innovation',
-   },
-  //  Brochure (pdf)
+    id: 'reel-1',
+    client: 'LetsPro Academy',
+    category: 'Reels',
+    mediaType: 'video',
+    image: '/works-thumbs/reels/letspro.jpg',
+    src: '/works-thumbs/reels/letspro.mp4',
+    alt: 'LetsPro Academy reel',
+  },
   {
-   id: 'brochure-1',
-   client: 'LetsPro Academy',
-   category: 'Brochures',
-   mediaType: 'pdf',
-   image: '/works/brochure/letspro.jpg',
-   src: '/works/brochure/letspro.pdf',
-   alt: 'LetsPro Academy brochure',
- },
- {
-   id: 'brochure-2',
-   client: 'Yanadays',
-   category: 'Brochures',
-   mediaType: 'pdf',
-   image: '/works/brochure/yana.jpg',
-   src: '/works/brochure/yana.pdf',
-   alt: 'LetsPro Academy brochure',
- },
- {
-   id: 'brochure-3',
-   client: 'Yanadays',
-   category: 'Brochures',
-   mediaType: 'pdf',
-   image: '/works/brochure/yana2.jpg',
-   src: '/works/brochure/yana2.pdf',
-   alt: 'LetsPro Academy brochure',
- },
+    id: 'reel-2',
+    client: 'Yanadays',
+    category: 'Reels',
+    mediaType: 'video',
+    image: '/works-thumbs/reels/yana.jpg',
+    src: '/works-thumbs/reels/yana.mp4',
+    alt: 'Yanadays reel',
+  },
+  {
+    id: 'reel-3',
+    client: 'Nimma Destination',
+    category: 'Reels',
+    mediaType: 'video',
+    image: '/works-thumbs/reels/nimma.jpg',
+    src: '/works-thumbs/reels/nimma.mp4',
+    alt: 'Nimma Destination reel',
+  },
+  {
+    id: 'reel-4',
+    client: 'Denzu Innovation',
+    category: 'Reels',
+    mediaType: 'video',
+    image: '/works-thumbs/reels/denzu.jpg',
+    src: '/works-thumbs/reels/denzu.mp4',
+    alt: 'Denzu Innovation reel',
+  },
+
+  // BROCHURES (PDF)
+  {
+    id: 'brochure-1',
+    client: 'LetsPro Academy',
+    category: 'Brochures',
+    mediaType: 'pdf',
+    image: '/works-thumbs/brochure/letspro.jpg',
+    src: '/works-thumbs/brochure/letspro.pdf',
+    alt: 'LetsPro Academy brochure',
+  },
+  {
+    id: 'brochure-2',
+    client: 'Yanadays',
+    category: 'Brochures',
+    mediaType: 'pdf',
+    image: '/works-thumbs/brochure/yana.jpg',
+    src: '/works-thumbs/brochure/yana.pdf',
+    alt: 'Yanadays brochure',
+  },
+  {
+    id: 'brochure-3',
+    client: 'Yanadays',
+    category: 'Brochures',
+    mediaType: 'pdf',
+    image: '/works-thumbs/brochure/yana2.jpg',
+    src: '/works-thumbs/brochure/yana2.pdf',
+    alt: 'Yanadays brochure 2',
+  },
 ];
 
 const filters: FilterType[] = ['All', 'Websites', 'Social Media', 'Design Works'];
@@ -514,7 +516,7 @@ const designFilters: DesignCategory[] = ['Logo', 'Products', 'Posters', 'Reels',
 
 const Works: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
-  const [designFilter, setDesignFilter] = useState<DesignCategory>('Posters'); // default
+  const [designFilter, setDesignFilter] = useState<DesignCategory>('Posters');
   const [selectedDesign, setSelectedDesign] = useState<DesignItem | null>(null);
   const [imageZoom, setImageZoom] = useState<number>(1);
 
@@ -531,7 +533,7 @@ const Works: React.FC = () => {
     ? []
     : activeFilter === 'Design Works'
     ? designWorks.filter((d) => d.category === designFilter)
-    : designWorks; // When main filter is "All", show all design items
+    : designWorks; // For "All" main filter, show all design items
 
   // Reset zoom when new design is selected
   useEffect(() => {
